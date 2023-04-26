@@ -1,6 +1,6 @@
 <?php
 
-namespace Henakel\Yii2InspiniaTpl\views\widgets;
+namespace wzzwx\yii2Inspinia\views\widgets;
 
 class Wrapper extends Widget
 {
