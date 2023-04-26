@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Henakel\\inspiniaTpl": ""
+      "Henakel\\inspiniaTpl": "/src"
     }
   }
 }
