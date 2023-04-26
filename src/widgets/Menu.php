@@ -1,6 +1,6 @@
 <?php
 
-namespace wzzwx\yii2Inspinia\widgets;
+namespace Henakel\Yii2InspiniaTpl\widgets;
 
 use Yii;
 use yii\widgets\Menu as YiiMenu;

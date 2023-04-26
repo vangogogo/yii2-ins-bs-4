@@ -1,6 +1,6 @@
 <?php
 
-namespace wzzwx\yii2Inspinia\views\widgets;
+namespace Henakel\Yii2InspiniaTpl\views\widgets;
 
 class Footer extends Widget
 {
@@ -12,7 +12,7 @@ class Footer extends Widget
         if (empty($this->replaceTags)) {
             $this->replaceTags = [
                 'right' => '<b>Version</b> 2.0',
-                'left' => '<strong>&copy;2018- '.date('Y').' callmewz 京ICP备19042689号-1</strong>',
+                'left' => '<strong>&copy;2008- '.date('Y').'</strong>',
             ];
         }
     }

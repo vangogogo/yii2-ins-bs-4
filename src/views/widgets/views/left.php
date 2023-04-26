@@ -1,11 +1,11 @@
 <?php
 
-namespace wzzwx\yii2Inspinia;
+namespace Henakel\Yii2InspiniaTpl;
 
 use Yii;
 use yii\helpers\ArrayHelper;
 
-/* @var $theme \wzzwx\yii2Inspinia\Theme */
+/* @var $theme \Henakel\Yii2InspiniaTpl\Theme */
 /** @var $assetPath */
 $user = $theme->user;
 $logo = $assetPath.'/img/logo.jpg';
@@ -21,7 +21,7 @@ if ($user && isset($user->avatar) && !empty($user->avatar)) {
                 <span><img alt="image" class="img-circle img-md" src="<?= $logo; ?>"></span>
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
                     <span class="block m-t-xs">
-                        <?= $user ? $user->name : '游客'; ?>  <b class="caret"></b>
+                        <?= $user ? $user->name : 'Гость'; ?>  <b class="caret"></b>
                     </span>
                 </a>
                 {dropdown}

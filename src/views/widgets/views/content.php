@@ -2,7 +2,7 @@
 
 use yii\widgets\Breadcrumbs;
 
-/* @var $theme \wzzwx\yii2Inspinia\Theme */
+/* @var $theme \Henakel\Yii2InspiniaTpl\Theme */
 /* @var $controllerCtx \yii\web\Controller */
 
 if (isset($this->blocks['content-header'])) {
