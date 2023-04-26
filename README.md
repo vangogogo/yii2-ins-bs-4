@@ -4,7 +4,7 @@
 'components' => [
     'view' => [
         'theme' => [
-            'class' => 'Henakel\inspiniaTpl\Theme',
+            'class' => 'Henakel\Yii2InspiniaTpl\Theme',
             'nowrap' => !YII_DEBUG,
             'menuItems' => [
                 [
