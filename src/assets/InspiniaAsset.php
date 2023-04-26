@@ -9,9 +9,11 @@ class InspiniaAsset extends AssetBundle
     public $sourcePath = __DIR__ . '/src';
 
     public $js = [
+        '/js/bootstrap.min.js'
     ];
 
     public $css = [
+        '/css/bootstrap.min.css'
     ];
 
     public $depends = [
