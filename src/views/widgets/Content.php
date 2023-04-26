@@ -2,8 +2,6 @@
 
 namespace Henakel\Yii2InspiniaTpl\views\widgets;
 
-use dmstr\widgets\Alert;
-
 class Content extends Widget
 {
     public $view = 'content';
@@ -14,7 +12,7 @@ class Content extends Widget
         if (empty($this->replaceTags)) {
             $this->replaceTags = [
                 'before_nav' => '',
-                'alert' => Alert::widget(),
+                'alert' => '',
             ];
         }
     }
