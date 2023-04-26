@@ -1,6 +1,6 @@
 <?php
 
-namespace Henakel\inspiniaTpl;
+namespace Henakel\Yii2InspiniaTpl;
 
 use Yii;
 use yii\base\Theme as YiiTheme;
