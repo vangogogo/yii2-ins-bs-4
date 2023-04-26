@@ -1,0 +1,26 @@
+{
+  "name": "Henakel/Yii2InspiniaTpl",
+  "description": "Yii2 Inspinia Tpl",
+  "type": "yii2-extension",
+  "keywords": [
+    "yii2",
+    " inspinia",
+    " assets",
+    " widgets"
+  ],
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Henakel",
+      "email": "invisebledemon@gmail.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Henakel\\inspiniaTpl": ""
+    }
+  }
+}
