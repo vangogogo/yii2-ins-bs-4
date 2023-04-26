@@ -1,6 +1,6 @@
 <?php
 
-namespace wzzwx\yii2Inspinia\assets;
+namespace Henakel\Yii2InspiniaTpl\assets;
 
 use yii\web\AssetBundle;
 
