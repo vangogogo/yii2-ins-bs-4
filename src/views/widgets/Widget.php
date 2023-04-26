@@ -2,7 +2,7 @@
 
 namespace Henakel\Yii2InspiniaTpl\views\widgets;
 
-use Yii;
+use  Yii;
 use yii\base\Widget as BaseWidget;
 use yii\base\InvalidCallException;
 
