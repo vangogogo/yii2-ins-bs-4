@@ -2,7 +2,9 @@
 
 use yii\helpers\Html;
 use Henakel\Yii2InspiniaTpl\assets\InspiniaAsset;
+use Henakel\Yii2InspiniaTpl\assets\MetisMenuAsset;
 use Henakel\Yii2InspiniaTpl\views\widgets\Wrapper;
+
 
 InspiniaAsset::register($this);
 

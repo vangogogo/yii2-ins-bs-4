@@ -12,7 +12,7 @@ class Menu extends YiiMenu
 {
     public $options = ['class' => 'sidebar-menu', 'id' => 'sidebar-menu'];
 
-    public $linkTemplate = '<a href="{url}">{icon} {label} {noticeLabel}</a>';
+    public $linkTemplate    = '<a href="{url}">{icon} {label} {noticeLabel}</a>';
     public $submenuTemplate = "\n<ul class='treeview-menu' {show}>\n{items}\n</ul>\n";
     public $activateParents = true;
     public $defaultIconHtml = '';
@@ -38,13 +38,15 @@ class Menu extends YiiMenu
         $posDefaultAction = strpos($this->route, Yii::$app->controller->defaultAction);
         if ($posDefaultAction) {
             $this->noDefaultAction = rtrim(substr($this->route, 0, $posDefaultAction), '/');
-        } else {
+        }
+        else {
             $this->noDefaultAction = false;
         }
         $posDefaultRoute = strpos($this->route, Yii::$app->controller->module->defaultRoute);
         if ($posDefaultRoute) {
             $this->noDefaultRoute = rtrim(substr($this->route, 0, $posDefaultRoute), '/');
-        } else {
+        }
+        else {
             $this->noDefaultRoute = false;
         }
         $items = $this->normalizeItems($this->items, $hasActiveChild);
@@ -61,11 +63,17 @@ class Menu extends YiiMenu
     protected function renderItem($item, $root = true)
     {
         $nested = false;
+
+        if (empty($item['url']))
+            $item['url'] = '#';
+
         if (isset($item['items'])) {
             $nested = true;
-            $labelTemplate = '<a href="{url}">{icon} {label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>{noticeLabel}</a>';
-            $linkTemplate = '<a href="{url}">{icon} {label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>{noticeLabel}</a>';
-        } else {
+            $item['option'] = ['class' => 'has-arrow'];
+            $labelTemplate = '<a href="{url}">{icon} {label} <i class="fa arrow"></i>{noticeLabel}</a>';
+            $linkTemplate = '<a href="{url}">{icon} {label}  <i class="fa arrow"></i>{noticeLabel}</a>';
+        }
+        else {
             $labelTemplate = $this->labelTemplate;
             $linkTemplate = $this->linkTemplate;
         }
@@ -73,21 +81,22 @@ class Menu extends YiiMenu
         if (isset($item['url'])) {
             $template = ArrayHelper::getValue($item, 'template', $linkTemplate);
             $replace = !empty($item['icon']) ?
-                ['{url}' => Url::to($item['url']), '{icon}' => '<i class="'.self::$iconClassPrefix.$item['icon'].'"></i> '] :
+                ['{url}' => Url::to($item['url']), '{icon}' => '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> '] :
                 ['{url}' => Url::to($item['url']), '{icon}' => $this->defaultIconHtml];
-        } else {
+        }
+        else {
             $template = ArrayHelper::getValue($item, 'template', $labelTemplate);
             $replace = !empty($item['icon']) ?
-                ['{icon}' => '<i class="'.self::$iconClassPrefix.$item['icon'].'"></i> '] :
+                ['{icon}' => '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> '] :
                 ['{icon}' => $this->defaultIconHtml];
         }
 
         $label = ['{label}' => $root ? Html::tag('span', $item['label']) : $item['label']];
         $noticeReplace = ['{noticeLabel}' => ''];
         if (isset($item['noticeLabel']) && $noticeLabel = trim($item['noticeLabel'])) {
-            $pullRight = $nested ? '' : ' pull-right';
+            $pullRight = $nested ? ' float-right mr-2' : ' float-right';
             $type = ArrayHelper::getValue($item, 'noticeType', 'warning');
-            $noticeReplace = ['{noticeLabel}' => Html::tag('span', $noticeLabel, ['class' => 'label label-'.$type.$pullRight])];
+            $noticeReplace = ['{noticeLabel}' => Html::tag('span', $noticeLabel, ['class' => 'label label-' . $type . $pullRight])];
         }
 
         return strtr($template, array_merge($replace, $noticeReplace, $label));
@@ -117,8 +126,9 @@ class Menu extends YiiMenu
             if (!empty($class)) {
                 if (empty($options['class'])) {
                     $options['class'] = implode(' ', $class);
-                } else {
-                    $options['class'] .= ' '.implode(' ', $class);
+                }
+                else {
+                    $options['class'] .= ' ' . implode(' ', $class);
                 }
             }
             (isset($item['node-key']) && !empty($item['node-key'])) && $options['id'] = $item['node-key'];
@@ -166,10 +176,12 @@ class Menu extends YiiMenu
             if (!isset($item['active'])) {
                 if ($this->activateParents && $hasActiveChild || $this->activateItems && $this->isItemActive($item)) {
                     $active = $items[$i]['active'] = true;
-                } else {
+                }
+                else {
                     $items[$i]['active'] = false;
                 }
-            } elseif ($item['active']) {
+            }
+            elseif ($item['active']) {
                 $active = true;
             }
         }
@@ -193,7 +205,7 @@ class Menu extends YiiMenu
         if (isset($item['url']) && is_array($item['url']) && isset($item['url'][0])) {
             $route = $item['url'][0];
             if ($route[0] !== '/' && Yii::$app->controller) {
-                $route = ltrim(Yii::$app->controller->module->getUniqueId().'/'.$route, '/');
+                $route = ltrim(Yii::$app->controller->module->getUniqueId() . '/' . $route, '/');
             }
             $route = ltrim($route, '/');
             if ($route != $this->route && $route !== $this->noDefaultRoute && $route !== $this->noDefaultAction) {

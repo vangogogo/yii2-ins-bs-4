@@ -16,21 +16,6 @@ if ($user && isset($user->avatar) && !empty($user->avatar)) {
 ?>
 <nav class="navbar-default navbar-static-side" role='navigation'>
     <div class="sidebar-collapse">
-        <div class="nav-header">
-            <div class="dropdown profile-element">
-                <span><img alt="image" class="img-circle img-md" src="<?= $logo; ?>"></span>
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
-                    <span class="block m-t-xs">
-                        <?= $user ? $user->name : 'Гость'; ?> <b class="caret"></b>
-                    </span>
-                </a>
-                {dropdown}
-            </div>
-        </div>
-        {search_form}
-        <div class="logo-element">
-            <span><img alt="image" class="img-circle img-sm" src="<?= $logo; ?>"></span>
-        </div>
         <?php
         echo widgets\Menu::widget([
             'items' => $theme->parseMenuItems(),

@@ -40,9 +40,6 @@ class Theme extends YiiTheme
 
     public function parseMenuItems()
     {
-        if ($this->useRbacMenu) {
-            return \mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->id);
-        }
         if ($this->menuItems instanceof \Closure) {
             return call_user_func($this->menuItems, $this, Yii::$app);
         }

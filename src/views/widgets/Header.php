@@ -9,12 +9,15 @@ class Header extends Widget
     public function init()
     {
         parent::init();
+        if (isset($this->replaceTags['btn_logout']))
+
+
         if (empty($this->replaceTags)) {
             $this->replaceTags = [
                 'nav_left' => '',
-                'nav_right' => '<ul class="nav navbar-top-links navbar-right"><li>
+                'btn_logout' => '<ul class="nav navbar-top-links navbar-right"><li>
                     <a href="/site/logout">
-                        <i class="fa fa-sign-out"></i> Log out
+                        <i class="fa fa-sign-out"></i> Выход
                     </a>
                 </li></ul>',
             ];
